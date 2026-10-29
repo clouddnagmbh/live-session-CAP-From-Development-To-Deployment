@@ -41,9 +41,9 @@ Here is a breakdown of the branches and the topics they cover:
     Zone launchpad.
 
 - **[09-mta](https://github.com/clouddnagmbh/live-session-CAP-From-Development-To-Deployment/tree/09-mta)**
-  - **Focus:** Finalizing the `mta.yaml` file to package the entire application
-    (database, service, UI) into a Multi-Target Application archive for
-    deployment.
+  - **Focus:** Adding the `mta.yaml` with `cds add mta` so the entire application
+    (database, service, UI) can be deployed as a Multi-Target Application with
+    `cds up`.
 
 ### How to Use These Branches
 
@@ -52,4 +52,16 @@ You can explore a specific step locally by checking out the branch:
 ```sh
 # Example: Switch to the service definition step
 git checkout 02-service-definition
+```
+
+### Deploy to SAP BTP
+
+Prerequisites: a Cloud Foundry space with SAP HANA Cloud, the `cf` CLI and
+`mbt` installed, and the production configuration from branches 05 to 08.
+
+```sh
+cds build --production   # test the production build
+cds add mta              # generates mta.yaml (branch 09)
+cf login --sso
+cds up                   # builds the MTA archive and deploys it to Cloud Foundry
 ```
