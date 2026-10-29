@@ -1,3 +1,3 @@
-# live-session-2025-11
+# live-session-CAP-From-Development-To-Deployment
 
 SAP Cloud Application Programming Model: From Development to Deployment
