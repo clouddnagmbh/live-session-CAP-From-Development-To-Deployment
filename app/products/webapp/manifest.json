@@ -175,6 +175,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "livesession202511.service"
+    "service": "livesessioncap.service"
   }
 }

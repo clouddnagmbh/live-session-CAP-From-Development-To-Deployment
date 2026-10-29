@@ -1,6 +1,0 @@
-ID,title,comment,rating,product_ID,createdAt,createdBy,modifiedAt,modifiedBy
-67437159-a860-4a7e-bbda-be96cf3f1814,title-6743715,comment-6743715,1,25181640-4781-4461-9c2d-01ebfdc05969,2001-12-01T23:00:00.000Z,createdBy.40jhf@example.net,2002-08-31T23:00:00.000Z,modifiedBy.40jhf@example.com
-67437161-a15e-4989-8fc7-eda72e32e548,title-6743716,comment-6743716,3,25181640-4781-4461-9c2d-01ebfdc05969,2009-03-11T23:00:00.000Z,createdBy.40jhg@example.com,2002-02-01T23:00:00.000Z,modifiedBy.40jhg@example.org
-67437172-1c32-4438-bc5d-89454dbd7f1e,title-6743717,comment-6743717,1,25181640-4781-4461-9c2d-01ebfdc05969,2019-06-03T23:00:00.000Z,createdBy.40jhh@example.org,2002-03-30T23:00:00.000Z,modifiedBy.40jhh@example.net
-67437181-0a91-4d5a-b8b6-0bb5aa77928d,title-6743718,comment-6743718,5,25181640-4781-4461-9c2d-01ebfdc05969,2021-11-25T23:00:00.000Z,createdBy.40jhi@example.org,2001-06-15T23:00:00.000Z,modifiedBy.40jhi@example.net
-67437193-14fd-4ce9-b0ea-f875477a499a,title-6743719,comment-6743719,4,25181640-4781-4461-9c2d-01ebfdc05969,2019-04-11T23:00:00.000Z,createdBy.40jhj@example.net,2006-11-18T23:00:00.000Z,modifiedBy.40jhj@example.com
