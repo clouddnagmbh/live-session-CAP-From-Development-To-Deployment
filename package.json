@@ -1,13 +1,13 @@
 {
-  "name": "live-session-cap-from-development-to-deployment",
+  "name": "live-session-cap",
   "version": "1.0.0",
+  "type": "module",
   "description": "SAP CAP Live Session: From Development to Deployment",
   "repository": "https://github.com/clouddnagmbh/live-session-CAP-From-Development-To-Deployment",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "@sap/cds": "^10",
-    "express": "^4",
     "@cap-js/hana": "^3",
     "@sap/xssec": "^4"
   },
@@ -15,8 +15,9 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@cap-js/cds-types": "^0.13.0",
-    "@cap-js/sqlite": "^3"
+    "@cap-js/cds-types": "^0.20.0",
+    "@cap-js/sqlite": "^3",
+    "@sap/cds-dk": "^10"
   },
   "scripts": {
     "start": "cds-serve",
@@ -32,7 +33,7 @@
         "auth": "xsuaa"
       },
       "destinations": true,
-      "html5-runtime": true,
+      "html5-repo": true,
       "workzone": true
     }
   }
