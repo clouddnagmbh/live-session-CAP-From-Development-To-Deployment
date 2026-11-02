@@ -140,5 +140,6 @@ vite.config.ts.timestamp-*
 
 # CAP / MTA build output
 gen/
+.cds/
 mta_archives/
 resources/

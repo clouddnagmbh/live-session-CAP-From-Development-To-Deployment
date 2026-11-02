@@ -28,7 +28,7 @@
     "crossNavigation": {
       "inbounds": {
         "products-display": {
-          "semanticObject": "Products",
+          "semanticObject": "products",
           "action": "display",
           "signature": {
             "parameters": {},

@@ -39,7 +39,14 @@ modules:
 
   - name: live-session-cap-app-deployer
     type: com.sap.application.content
-    path: .
+    path: gen
+    build-parameters:
+      build-result: app/
+      requires:
+        - name: livesessioncapproducts
+          artifacts:
+            - products.zip
+          target-path: app/
     requires:
       - name: live-session-cap-auth
       - name: srv-api
@@ -48,32 +55,16 @@ modules:
           content-target: true
           config:
             HTML5Runtime_enabled: true
-    build-parameters:
-      build-result: resources/
-      requires:
-        - name: livesessioncapproducts
-          artifacts:
-            - products.zip
-          target-path: resources/
     parameters:
       config:
-        HTML5Runtime_enabled: true
-        init_data:
-          instance:
-            existing_destinations_policy: update
-            destinations:
-              - Name: srv-api
-                URL: ~{srv-api/srv-url}
-                Authentication: NoAuthentication
-                Type: HTTP
-                ProxyType: Internet
-                HTML5.ForwardAuthToken: true
-                HTML5.DynamicDestination: true
-              - Name: ui5
-                URL: https://ui5.sap.com
-                Authentication: NoAuthentication
-                Type: HTTP
-                ProxyType: Internet
+        destinations:
+          - Name: srv-api
+            URL: ~{srv-api/srv-url}
+            Authentication: NoAuthentication
+            Type: HTTP
+            ProxyType: Internet
+            ForwardAuthToken: true
+            DynamicDestination: true
 
   - name: livesessioncapproducts
     type: html5
@@ -84,7 +75,8 @@ modules:
       commands:
         - npm ci
         - npm run build
-      supported-platforms: []
+      supported-platforms:
+        []
 
   - name: live-session-cap-destinations
     type: com.sap.application.content
@@ -128,6 +120,10 @@ resources:
       config:
         xsappname: live-session-cap-${org}-${space}
         tenant-mode: dedicated
+        oauth2-configuration:
+          credential-types:
+            - "binding-secret"
+            - "x509"
   - name: live-session-cap-db
     type: com.sap.xs.hdi-container
     parameters:
@@ -140,32 +136,11 @@ resources:
       service-plan: lite
       config:
         HTML5Runtime_enabled: true
-        init_data:
-          instance:
-            existing_destinations_policy: update
-            destinations:
-              - Name: srv-api
-                URL: ~{srv-api/srv-url}
-                Authentication: NoAuthentication
-                Type: HTTP
-                ProxyType: Internet
-                HTML5.ForwardAuthToken: true
-                HTML5.DynamicDestination: true
     requires:
       - name: srv-api
-        group: destinations
-        properties:
-          name: srv-api # must be used in xs-app.json as well
-          url: ~{srv-url}
-          forwardAuthToken: true
 
   - name: live-session-cap-html5-repo-host
     type: org.cloudfoundry.managed-service
     parameters:
       service: html5-apps-repo
       service-plan: app-host
-  - name: live-session-cap-html5-runtime
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service: html5-apps-repo
-      service-plan: app-runtime
